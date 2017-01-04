@@ -6,7 +6,7 @@ mem_filter_send_ioctl(int cmd, void *ioctl_info)
 	int fd = 0;
 	int ret = 0;
 
-	fd = open(MEM_FILTER_CTRL_PATH, "r");
+	fd = open(MEM_FILTER_CTRL_PATH, O_RDONLY);
 	if (fd < 0) {
 		printf("open file %s failed for %s!\n", 
 			   MEM_FILTER_CTRL_PATH, strerror(errno));

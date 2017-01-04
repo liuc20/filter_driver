@@ -289,6 +289,7 @@ mem_vdisk_make_request(struct request_queue *q, struct bio *bio)
 
 	rule = mem_vdisk_get_io_errtype(vdisk, bio);
 	if (!rule) {
+		/* no error, just pass the bio to lowlayer. */
 		ret = mem_vdisk_submit_bio(vdisk, bio);
 		goto out;
 	}

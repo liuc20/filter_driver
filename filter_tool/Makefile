@@ -5,6 +5,7 @@ CFLAGS=-I$(LIB_DIR)	\
 	   -I$(INCLUDE_DIR) \
 	   -g
 LD_FLAG=-lpthread -lrt
+INSTALL_PATH=/usr/local/bin
 
 EXTRA_CFLAG=-DMEM_RAID_DESKTOP
 
@@ -24,7 +25,6 @@ ${RAID_TOOL}: ${OBJ}
 	$(CC) ${CFLAGS} -o ${RAID_TOOL} ${OBJ} ${LD_FLAG}
 
 install:
-	mkdir -p $(INSTALL_PATH)
 	@$(INSTALL) ${RAID_TOOL} ${INSTALL_PATH}
 
 clean:
